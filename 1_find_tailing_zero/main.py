@@ -18,7 +18,6 @@ output = number can not be negative
 
 
 class Solution:
-
     def find_tailing_zeroes(self, number: int) -> int | str:
         if number < 0 :
             return "number can not be negative"
@@ -30,10 +29,28 @@ class Solution:
                 power *= 5
             return f"output = {count}"
 
+    
+    def factorial(self,number : int) -> int | str :
+        if number == 0 or number == 1:
+            return 1
+        else :
+            return number * self.factorial(number -1 )
+        
+    def find_tail (self,factorial : int) -> int | str :
+        count = 0
+        while factorial % 10 == 0:
+            count += 1
+            factorial = factorial // 10
+        return count
+                 
+
 solution = Solution()
 user_in = input("enter number to factorial :")
 if not user_in: 
     print('please enter a number')
 else : 
+    fac = solution.factorial(int(user_in))
+    print(solution.factorial(int(user_in)))
+    print(solution.find_tail(int(fac))) 
     print(solution.find_tailing_zeroes(int(user_in)))
 
